@@ -21,15 +21,39 @@ print("Good Luck and Have Fun")
 # Variables
 start = input('\nPlease Type "S" To Begin Game')
 print(correct_number)
+total_points = 0
 # Once player starts game
 if start.upper() == "S":
     for i in range(10):
         print("\nYou are on guess: ", i + 1)
+        guess_number = (i + 1)
         guess = int(input("\nPlease Input Your Guess"))
-        if guess == correct_number:
-            print("\nWow, that's amazing you got it right first time! \nYou have gained 10 Points!")
-        elif guess < correct_number:
+        if guess == correct_number and guess_number == 10:
+            print("Correct!, that was a close one. + 1 point")
+        if guess == correct_number and guess_number == (5, 9):
+            print("Correct!, + 1 point")
+            total_points += 1
+        elif guess == correct_number and guess_number == 4:
+            print("Correct! + 2 points")
+            total_points += 2
+        elif guess == correct_number and guess_number == 3:
+            print("Correct, you have been granted 3 points.")
+            total_points += 3
+        elif guess == correct_number and guess_number == 2:
+            print("Correct, 5 points gained!")
+            total_points += 5
+        elif guess == correct_number and guess_number == 1:
+            print("Wow! first guess, + 10 points!")
+            total_points += 10
+        elif guess < correct_number and guess_number == (1, 9):
             print("Incorrect, the number you entered is lower than the correct number. Try Again.")
-        elif guess > correct_number:
+        elif guess > correct_number and guess_number == (1, 9):
             print("Incorrect, the number you entered is higher than the correct number. Try Again.")
-    print("Game Over")
+        elif guess != correct_number and guess_number == 10:
+            print("YOU LOSE, GAME OVER \n\nYou had a total of: ", total_points, " points")
+
+        if guess == correct_number:
+            break
+
+
+
